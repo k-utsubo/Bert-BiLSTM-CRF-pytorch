@@ -136,9 +136,7 @@ if __name__=="__main__":
 
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-    model = Bert_BiLSTM_CRF(tag2idx)
-    if torch.cuda.is_available():
-        model.cuda()
+    model = Bert_BiLSTM_CRF(tag2idx).cuda()
     print('Initial model Done')
     # model = nn.DataParallel(model)
 

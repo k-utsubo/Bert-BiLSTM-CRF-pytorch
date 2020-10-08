@@ -19,7 +19,7 @@ from pytorch_pretrained_bert import BertTokenizer
 
 logger = logging.getLogger(__name__)
 
-bert_model = 'chinese_L-12_H-768_A-12'
+bert_model = '/root/workspace/qa_project/chinese_L-12_H-768_A-12'
 tokenizer = BertTokenizer.from_pretrained(bert_model)
 # VOCAB = ('<PAD>', 'O', 'I-LOC', 'B-PER', 'I-PER', 'I-ORG', 'B-LOC', 'B-ORG')
 VOCAB = ('<PAD>', '[CLS]', '[SEP]', 'O', 'B-INF', 'I-INF', 'B-PAT', 'I-PAT', 'B-OPS', 
