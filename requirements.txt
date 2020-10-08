@@ -1,2 +1,2 @@
 torch
-transformers
+pytorch_pretrained_bert

@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from utils import tag2idx, idx2tag
-from transformers import BertModel
+from pytorch_pretrained_bert import BertModel
 import config
 
 class Net(nn.Module):

@@ -15,7 +15,7 @@ import logging
 import torch
 from torch.utils.data import Dataset
 from typing import Tuple, List
-from transformers import BertTokenizer
+from pytorch_pretrained_bert import BertTokenizer
 import config
 logger = logging.getLogger(__name__)
 

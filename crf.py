@@ -11,7 +11,7 @@
  
 import torch
 import torch.nn as nn
-from transformers import BertModel
+from pytorch_pretrained_bert import BertModel
 import config
 
 def argmax(vec):
