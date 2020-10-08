@@ -1,13 +1,13 @@
 import torch
 import torch.nn as nn
 from utils import tag2idx, idx2tag
-from pytorch_pretrained_bert import BertModel
-        
+from transformers import BertModel
+import config
 
 class Net(nn.Module):
     def __init__(self, top_rnns=False, vocab_size=None, device='cpu', finetuning=False):
         super().__init__()
-        self.bert = BertModel.from_pretrained('/root/workspace/qa_project/chinese_L-12_H-768_A-12')
+        self.bert = BertModel.from_pretrained(config.Config.bert_model)
 
         self.top_rnns=top_rnns
         if top_rnns:

@@ -11,8 +11,8 @@
  
 import torch
 import torch.nn as nn
-from pytorch_pretrained_bert import BertModel
-
+from transformers import BertModel
+import config
 
 def argmax(vec):
     # return the argmax as a python int
@@ -44,7 +44,7 @@ class Bert_BiLSTM_CRF(nn.Module):
         self.start_label_id = self.tag_to_ix['[CLS]']
         self.end_label_id = self.tag_to_ix['[SEP]']
         self.fc = nn.Linear(hidden_dim, self.tagset_size)
-        self.bert = BertModel.from_pretrained('/root/workspace/qa_project/chinese_L-12_H-768_A-12')
+        self.bert = BertModel.from_pretrained(config.Config.bert_model)
         # self.bert.eval()  # 知用来取bert embedding
         
         self.transitions.data[self.start_label_id, :] = -10000

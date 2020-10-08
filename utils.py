@@ -15,15 +15,22 @@ import logging
 import torch
 from torch.utils.data import Dataset
 from typing import Tuple, List
-from pytorch_pretrained_bert import BertTokenizer
-
+from transformers import BertTokenizer
+import config
 logger = logging.getLogger(__name__)
 
-bert_model = '/root/workspace/qa_project/chinese_L-12_H-768_A-12'
+bert_model = config.Config.bert_model
 tokenizer = BertTokenizer.from_pretrained(bert_model)
 # VOCAB = ('<PAD>', 'O', 'I-LOC', 'B-PER', 'I-PER', 'I-ORG', 'B-LOC', 'B-ORG')
-VOCAB = ('<PAD>', '[CLS]', '[SEP]', 'O', 'B-INF', 'I-INF', 'B-PAT', 'I-PAT', 'B-OPS', 
-        'I-OPS', 'B-DSE', 'I-DSE', 'B-DRG', 'I-DRG', 'B-LAB', 'I-LAB')
+#VOCAB = ('<PAD>', '[CLS]', '[SEP]', 'O', 'B-INF', 'I-INF', 'B-PAT', 'I-PAT', 'B-OPS',
+#        'I-OPS', 'B-DSE', 'I-DSE', 'B-DRG', 'I-DRG', 'B-LAB', 'I-LAB')
+VOCAB=('<PAD>', '[CLS]', '[SEP]', 'O','B-LOC','B-MISC',
+'B-ORG',
+'B-PER',
+'I-LOC',
+'I-MISC',
+'I-ORG',
+'I-PER')
 tag2idx = {tag: idx for idx, tag in enumerate(VOCAB)}
 idx2tag = {idx: tag for idx, tag in enumerate(VOCAB)}
 MAX_LEN = 256 - 2
